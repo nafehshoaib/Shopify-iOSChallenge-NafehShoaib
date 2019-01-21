@@ -52,7 +52,21 @@ This Xcode project follows the Model-View-Controller paradigm, as do most iOS Ap
 
 # Code Structure
 ## Services
-All API Related code is confined to the Services class, which houses three Alamofire API Calls. The three public functions contain relevant parameters and a completion handler as their arguments. The completion handler is then called using **Grand Central Dispatch** asynchronously when the data is loaded successfully. All JSON parsing is handled by each respective Model class. The three API's that is used in other swift classes are as follows:
+All API Related code is confined to the Services class, which houses three Alamofire API Calls. The three public functions contain relevant parameters and a completion handler as their arguments. The completion handler is then called using **Grand Central Dispatch** asynchronously when the data is loaded successfully. All JSON parsing is handled by each respective Model class. Heres an example:
+```swift
+Alamofire.request(Services.PRODUCT_URL, parameters: params).responseJSON { response in
+    if let value = response.result.value {
+        let products = JSON(value)["products"].map {
+            Product(fromJSON: $1, withDateFormatter: self.dateFormatter)
+        }
+        DispatchQueue.main.async {
+            completion(Result.success(products))
+        }
+    }
+}
+```
+
+The three API's that is used in other swift classes are as follows:
 
 Custom Collections:
 ```swift
