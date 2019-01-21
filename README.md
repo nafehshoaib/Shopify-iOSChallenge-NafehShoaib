@@ -1,3 +1,6 @@
+![collection-search](images/collection-search.jpeg)
+![product-search](images/product-search.jpeg)
+![info-static](images/info-static.jpeg)
 #  Shopify iOS Internship Summer 2019 Challenge Submission
 This project is my submission for the Shopify Intern Challenge for the iOS Software Engineering Summer 2019 Intern Position at Shopify in Ottawa, Toronto, and Montreal. This App displays data from a given API in the form of UICollectionViews and UITableViews. There are added features like Search, 3D Touch, Animations, and an Info page.
 
