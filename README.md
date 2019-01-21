@@ -56,17 +56,17 @@ All API Related code is confined to the Services class, which houses three Alamo
 
 Custom Collections:
 ```swift
-public func getCustomCollections(completion: @escaping (Result<[CustomCollection]>) -> Void) {
+public func getCustomCollections(completion: @escaping (Result<[CustomCollection]>) -> Void) { }
 ```
 
 Collects:
 ```swift
-public func getCollects(for id: Double, completion: @escaping (Result<[Collect]>) -> Void) {
+public func getCollects(for id: Double, completion: @escaping (Result<[Collect]>) -> Void) { }
 ```
 
 Products:
 ```swift
-public func getProducts(withProductIDs ids:[Int], completion: @escaping (Result<[Product]>) -> Void) {
+public func getProducts(withProductIDs ids:[Int], completion: @escaping (Result<[Product]>) -> Void) { }
 ```
 
 ## Models
@@ -75,15 +75,15 @@ Each model uses primitive classes for simple data storage and UIKit's data class
 Here's an example of a convenience initializer:
 ```swift
 convenience init(fromJSON json: JSON) {
-self.init(
-id: json["id"].doubleValue,
-title: json["title"].stringValue,
-price: json["price"].doubleValue,
-sku:  json["sku"].stringValue,
-position: json["position"].doubleValue,
-inventoryQuantity: json["inventory_quantity"].intValue,
-requiresShipping: json["requires_shipping"].boolValue
-)
+    self.init(
+        id: json["id"].doubleValue,
+        title: json["title"].stringValue,
+        price: json["price"].doubleValue,
+        sku:  json["sku"].stringValue,
+        position: json["position"].doubleValue,
+        inventoryQuantity: json["inventory_quantity"].intValue,
+        requiresShipping: json["requires_shipping"].boolValue
+    )
 }
 ```
 
@@ -92,9 +92,9 @@ Each cell class takes care of its own animations, view design, and data-setting 
 
 ```swift
 public func setup(using customCollection: CustomCollection) {
-self.backgroundColor = .white
-self.titleLabel.text = customCollection.title?.components(separatedBy: " ")[0]
-self.imageView.image = customCollection.image
+    self.backgroundColor = .white
+    self.titleLabel.text = customCollection.title?.components(separatedBy: " ")[0]
+    self.imageView.image = customCollection.image
 }
 ```
 
@@ -104,11 +104,11 @@ View controllers do all API calls via the Services class, connects all views lik
 API calls via the Services class are handled using Swift's closures asynchronously, and the view is adapted accordingly. Here's an example:
 ```swift
 Services().getCustomCollections { result in
-if let value = result.value {
-self.customCollections = value
-}
-self.collectionView?.reloadData()
-self.collectionView.refreshControl?.endRefreshing()
+    if let value = result.value {
+        self.customCollections = value
+    }
+    self.collectionView?.reloadData()
+    self.collectionView.refreshControl?.endRefreshing()
 }
 ```
 
@@ -119,7 +119,7 @@ Swift's code style is embraced in this project. The simplest example is the use 
 
 ```swift
 let variants = json["variants"].map {
-Variant(fromJSON: $1)
+    Variant(fromJSON: $1)
 }
 ```
 
@@ -132,16 +132,16 @@ This is also evident in the use of Swift's generics, especially useful in reload
 Reload:
 ```swift
 var products = [Product]() {
-didSet {
-self.tableView.reloadData()
-}
+    didSet {
+        self.tableView.reloadData()
+    }
 }
 ```
 
 Predicates:
 ```swift
 var minPrice: Double {
-return variants.min { a, b in a.price < b.price }!.price
+    return variants.min { a, b in a.price < b.price }!.price
 }
 ```
 
