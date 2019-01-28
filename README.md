@@ -1,8 +1,10 @@
-<img src="/images/collection-search.jpeg" width="200">
-<img src="/images/product-search.jpeg" width="200">
-<img src="/images/info-static.jpeg" width="200">
-
 #  Shopify iOS Internship Summer 2019 Challenge Submission
+<p float="left" align="center">
+    <img src="/images/screengif-total.gif" width="200"/>
+    <img src="/images/screenshots-nafeh/collection-search.jpeg" width="200"/>
+    <img src="/images/screenshots-nafeh/product-search.jpeg" width="200"/>
+    <img src="/images/info-static.jpeg" width="200"/>
+</p>
 This project is my submission for the Shopify Intern Challenge for the iOS Software Engineering Summer 2019 Intern Position at Shopify in Ottawa, Toronto, and Montreal. This App displays data from a given API in the form of UICollectionViews and UITableViews. There are added features like Search, 3D Touch, Animations, and an Info page.
 
 The project has the following third-party dependecies and uses CocoaPods for package management:
